@@ -10,3 +10,11 @@ class calendarController:
             [KeyboardButton("I'm not doing something today")]
         ])
         await update.message.reply_text("Hi! (name of the gmail)\nWhat do you want to do?\nChoose an option " , reply_markup=keyboard)
+
+    @staticmethod
+    async def create_task_or_event(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        keyboard = ReplyKeyboardMarkup([
+            [KeyboardButton("Create a Task") , KeyboardButton("Create a Event")]
+        ])
+        if update.message.text == "Create Task or Event":
+            await update.message.reply_text("What do you want to do?" , reply_markup=keyboard)
